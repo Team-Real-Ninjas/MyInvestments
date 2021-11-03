@@ -1,37 +1,52 @@
 # MyInvestments
-This project is creating a personal investment portfolio. Allowing users to input there investments and see it graphical form. Create posts about...
+## Table Of Contents
+1. [Overview](#Overview)
+2. [Product Spec](#Product-Spec)
+3. [Wireframes](#Wireframes)
 
 
-User interaction 
+## Overview
+### Description 
+MyInvestments is a personal investment portfolio. Is a platform that allows for the monitoring of BTC, ETH, GLD, and SLVR stocks in real-time. MyInvestments also allow users to input their investments and see them in graphical or listed form. Finally users can create posts in their Investment Blogs.
 
-- User should log in using secure password and email
-- User should be able to interact(see specific prices for the points on the graph) and filter the stock graphs
-- User should be able to input investments into their portfolio 
-- User should be able to analyze and filter/interact their portfolio 
-- User should be able to make blog posts and save them to the blog tab
+## App Evaluation
+- **Category:** Personal Finance/ Blog
+- **Story:** Analyzes users investment choices, and allows them to montior them in various ways. The user can then decide to create blog posts about their learnings and help retain knowledge.
+- **Market:** Any individual that has investments could choose to use this app, and to keep it a secure, they will have a secure login.
+- **Habit:** This app could be used as often or unoften as the user wanted depending on how deep they are into their personal finances, and what exactly they’re looking/monitoring for.
+- **Scope:** First we would start with creating the home page so users can manage/monitor/and blog about the BTC, ETH, GLD, and SLVR stocks, then perhaps this could evolve into a news/portoflio platform this will broaden its usage. Large potential for use with local news sites(Direct users to their site), local blogs, and BTC/ETH Platforms.
 
-##MVP+
-APPLICATION pulls news stories from the web that contains info(tags) on:
-- Cryptocurrency 
-- Sustainability 
-- ESG
-- Sustainability investing
-- Sustainability goals
-- Major World News Stories
-- Developing cities
-- UN
-- Application pulls posts from LinkedIn that contains info(tags) on:
-- Same as before 
-- Application includes a brief welcome screen — “Hello (USER NAME), Welcome to your Investment 
- 
+## Product Spec
 
-- Application allows for place where you can write quick blogs (Given Template) 
-- PURPOSE:
-- Keep up with learnings
-- Summarize learnings 
-- Help retain knowledge 
- 
+### 1. User Stories (Required and Optional)
 
-Model number and year it was created 
+### Required Must-have Stories
+- User should be able to log in using secure password and email
+- User should be able to interact(see specific prices for the points on the graph) and 
+- User should be able to input investments into their portfolio
+- User should be able to analyze their portfolio
+- User should be able to make blog posts(Given Template) and save them to the blog tab
 
- 
+### Optional Nice-to-have Stories
+- User should be able to filter the stock graphs
+- User should be able to filter/interact their portfolio
+- The application pulls the news stories from the web that contains info(tags) on:
+        - Cryptocurrency
+        - Sustainability
+        - ESG
+        - Sustainability investing
+        - Sustainability goals
+        - Major World News Stories
+        - Developing cities
+        - UN
+
+ - The application pulls posts from LinkedIn that contains info(tags) on:
+ - Application includes a brief welcome screen —“Hello (USER NAME), Welcome to your Investments
+
+### 2. Screens
+- Login - username/email, password.
+- Home Screen - Displays current stock charts. Has push notifications about stock increases/decreases
+- Portfolio Screen - Dsiplays user investments (chart + written format). Displays weekly report. Displays investment inputs.
+- Portfolio Blog Screen - Users can add posts and comments on a blog.
+- News Page - Displays relevatn news stories about stocks.
+- Logout - redirects to login screen.
