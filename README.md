@@ -10,7 +10,7 @@ User interaction
 - User should be able to analyze and filter/interact their portfolio 
 - User should be able to make blog posts and save them to the blog tab
 
-MVP+
+##MVP+
 APPLICATION pulls news stories from the web that contains info(tags) on:
 - Cryptocurrency 
 - Sustainability 
@@ -18,7 +18,6 @@ APPLICATION pulls news stories from the web that contains info(tags) on:
 - Sustainability investing
 - Sustainability goals
 - Major World News Stories
-- ESG
 - Developing cities
 - UN
 - Application pulls posts from LinkedIn that contains info(tags) on:
@@ -28,9 +27,9 @@ APPLICATION pulls news stories from the web that contains info(tags) on:
 
 - Application allows for place where you can write quick blogs (Given Template) 
 - PURPOSE:
--[] Keep up with learnings
--[] Summarize learnings 
--[] Help retain knowledge 
+- Keep up with learnings
+- Summarize learnings 
+- Help retain knowledge 
  
 
 Model number and year it was created 
