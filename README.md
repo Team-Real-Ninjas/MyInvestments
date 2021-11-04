@@ -44,9 +44,36 @@ MyInvestments is a personal investment portfolio. Is a platform that allows for 
  - Application includes a brief welcome screen —“Hello (USER NAME), Welcome to your Investments
 
 ### 2. Screens
-- Login - username/email, password.
-- Home Screen - Displays current stock charts. Has push notifications about stock increases/decreases
-- Portfolio Screen - Dsiplays user investments (chart + written format). Displays weekly report. Displays investment inputs.
-- Portfolio Blog Screen - Users can add posts and comments on a blog.
-- News Page - Displays relevatn news stories about stocks.
-- Logout - redirects to login screen.
+- **Login** - username, password.
+- **Home Screen** - Displays current stock charts. Has push notifications about stock increases/decreases
+- **Portfolio Screen** - Dsiplays user investments (chart + written format). Displays weekly report. Displays investment inputs.
+- **Portfolio Blog Screen** - Users can add posts and comments on a blog.
+- **News Page** - Displays relevatn news stories about stocks.
+- **Logout** - redirects to login screen.
+
+### 3. Navigation
+
+#### Menu Navigation (Menu to Screen)
+- Stock Watcher (Monitor Stocks)
+- Portfolio
+- Blog
+- Logout
+
+### Optional:
+- News
+- Account Details
+
+### Flow Navigation (Screen to Screen)
+**Forced Log-in** -> Account creation if no log in is available
+**Stock Watcher** --> Stock Charts(No Navigation) (Optional: News Platforms)
+**Portfolio** -> Investment Inputs
+**Blog** -> Text field to be modified.
+**Logout** -> Login Screen
+
+# Wireframes
+
+[INSERT PIC]
+
+## Digital Wireframes & Mockups
+
+[INSERT PIC]
