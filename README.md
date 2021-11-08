@@ -64,11 +64,12 @@ MyInvestments is a personal investment portfolio. Is a platform that allows for 
 - Account Details
 
 ### Flow Navigation (Screen to Screen)
-**Forced Log-in** -> Account creation if no log in is available
-**Stock Watcher** --> Stock Charts(No Navigation) (Optional: News Platforms)
-**Portfolio** -> Investment Inputs
-**Blog** -> Text field to be modified.
-**Logout** -> Login Screen
+- **Forced Log-in** -> Account creation if no log in is available
+- **Stock Watcher** --> Stock Charts(No Navigation) (Optional: News)
+- **News** --> News Platforms
+- **Portfolio** -> Investment Inputs
+- **Blog** -> Text field to be modified.
+- **Logout** -> Login Screen
 
 # Wireframes
 [INSERT PIC]
