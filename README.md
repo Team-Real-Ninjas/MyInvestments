@@ -31,7 +31,7 @@ MyInvestments is a personal investment portfolio. Is a platform that allows for 
 - User should be able to filter the stock graphs
 - User should be able to filter/interact their portfolio
 - The application pulls the news stories from the web that contains info(tags) on:
-        - Cryptocurrency
+        > Cryptocurrency
         - Sustainability
         - ESG
         - Sustainability investing
@@ -48,7 +48,7 @@ MyInvestments is a personal investment portfolio. Is a platform that allows for 
 - **Home Screen** - Displays current stock charts. Has push notifications about stock increases/decreases
 - **Portfolio Screen** - Dsiplays user investments (chart + written format). Displays weekly report. Displays investment inputs.
 - **Portfolio Blog Screen** - Users can add posts and comments on a blog.
-- **News Page** - Displays relevatn news stories about stocks.
+- **News Page** **(Optional Story)** - Displays relevatn news stories about stocks.
 - **Logout** - redirects to login screen.
 
 ### 3. Navigation
@@ -71,9 +71,7 @@ MyInvestments is a personal investment portfolio. Is a platform that allows for 
 **Logout** -> Login Screen
 
 # Wireframes
-
 [INSERT PIC]
 
 ## Digital Wireframes & Mockups
-
 [INSERT PIC]
