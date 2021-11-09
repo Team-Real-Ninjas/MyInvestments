@@ -7,7 +7,7 @@
 
 ## Overview
 ### Description 
-MyInvestments is a personal investment portfolio. Is a platform that allows for the monitoring of BTC, ETH, GLD, and SLVR stocks in real-time. MyInvestments also allow users to input their investments and see them in graphical or listed form. Finally users can create posts in their Investment Blogs.
+MyInvestments is a personal investment portfolio. It is a platform that allows for the monitoring of BTC, ETH, GLD, and SLVR stocks in real-time. MyInvestments also allow users to input their investments and see them in graphical or listed form. Finally users can create posts in their Investment Blogs.
 
 ## App Evaluation
 - **Category:** Personal Finance/ Blog
@@ -24,14 +24,14 @@ MyInvestments is a personal investment portfolio. Is a platform that allows for 
 - User should be able to log in using secure password and email
 - User should be able to interact(see specific prices for the points on the graph) and 
 - User should be able to input investments into their portfolio
-- User should be able to analyze their portfolio
+- User should be able to view portfolio history.
 - User should be able to make blog posts(Given Template) and save them to the blog tab
 
 ### Optional Nice-to-have Stories
 - User should be able to filter the stock graphs
-- User should be able to filter/interact their portfolio
-- The application pulls the news stories from the web that contains info(tags) on:
-        > Cryptocurrency
+- User should be able to filter their portfolio
+- User should be able to view news stories from the web that contains info(tags) on:
+        - Cryptocurrency
         - Sustainability
         - ESG
         - Sustainability investing
@@ -39,15 +39,14 @@ MyInvestments is a personal investment portfolio. Is a platform that allows for 
         - Major World News Stories
         - Developing cities
         - UN
-
- - The application pulls posts from LinkedIn that contains info(tags) on:
- - Application includes a brief welcome screen —“Hello (USER NAME), Welcome to your Investments
+ - User should be able to view posts from LinkedIn that contains info(tags) on:
+ - User should be greeted with a brief welcome screen —“Hello (USER NAME), Welcome to your Investments"
 
 ### 2. Screens
-- **Login** - username, password.
+- **Login** - Display username and password login.
 - **Home Screen** - Displays current stock charts. Has push notifications about stock increases/decreases
 - **Portfolio Screen** - Dsiplays user investments (chart + written format). Displays weekly report. Displays investment inputs.
-- **Portfolio Blog Screen** - Users can add posts and comments on a blog.
+- **Portfolio Blog Screen** - Displays Blog and Users can add posts and comments on a blog posts.
 - **News Page** **(Optional Story)** - Displays relevatn news stories about stocks.
 - **Logout** - redirects to login screen.
 
