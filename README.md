@@ -66,7 +66,7 @@ MyInvestments is a personal investment portfolio. It is a platform that allows f
 - Account Details
 
 ### Flow Navigation (Screen to Screen)
-- **Forced Log-in** --> Account creation if no login is available
+- **Log-in** --> Account creation if no login is available
 - **Stock Watcher** --> Stock Charts(No Navigation) 
 - **News** --> News Platforms
 - **Portfolio** --> Investment Inputs
