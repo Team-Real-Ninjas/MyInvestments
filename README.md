@@ -7,7 +7,7 @@
 
 ## Overview
 ### Description 
-MyInvestments is a personal investment portfolio. It is a platform that allows for the monitoring of BTC, ETH, GLD, and SLVR stocks in real-time. MyInvestments also allow users to input their investments and see them in graphical or listed form. Finally users can create posts in their Investment Blogs.
+MyInvestments is a personal investment portfolio. It is a platform that allows for the monitoring of BTC(Bitcoin), ETH(Etherum), GLD(Gold), and SLVR(Silver) stocks in real-time. MyInvestments also allow users to input their investments and see them in graphical or listed form. Finally users can create posts in their Investment Blogs.
 
 ## App Evaluation
 - **Category:** Personal Finance/ Blog
@@ -28,6 +28,7 @@ MyInvestments is a personal investment portfolio. It is a platform that allows f
 - User should be able to make blog posts(Given Template) and save them to the blog tab
 
 ### Optional Nice-to-have Stories
+- User should be able to see their basic details
 - User should be able to filter the stock graphs
 - User should be able to filter their portfolio
 - User should be able to view news stories from the web that contains info(tags) on:
@@ -47,15 +48,17 @@ MyInvestments is a personal investment portfolio. It is a platform that allows f
 - **Home Screen** - Displays current stock charts. Has push notifications about stock increases/decreases
 - **Portfolio Screen** - Dsiplays user investments (chart + written format). Displays weekly report. Displays investment inputs.
 - **Portfolio Blog Screen** - Displays Blog and Users can add posts and comments on a blog posts.
-- **News Page** **(Optional Story)** - Displays relevatn news stories about stocks.
+- **News Screen** **(Optional Story)** - Displays relevant news stories about stocks.
+- **Account Screen** **(Optional Story)** - Displays basic user account information
 - **Logout** - redirects to login screen.
 
 ### 3. Navigation
 
-#### Menu Navigation (Menu to Screen)
+#### Tab Navigation (Menu to Screen)
 - Stock Watcher (Monitor Stocks)
 - Portfolio
 - Blog
+- Account
 - Logout
 
 ### Optional:
@@ -63,18 +66,18 @@ MyInvestments is a personal investment portfolio. It is a platform that allows f
 - Account Details
 
 ### Flow Navigation (Screen to Screen)
-- **Forced Log-in** -> Account creation if no log in is available
-- **Stock Watcher** --> Stock Charts(No Navigation) (Optional: News)
+- **Forced Log-in** --> Account creation if no login is available
+- **Stock Watcher** --> Stock Charts(No Navigation) 
 - **News** --> News Platforms
-- **Portfolio** -> Investment Inputs
-- **Blog** -> Text field to be modified.
-- **Logout** -> Login Screen
+- **Portfolio** --> Investment Inputs
+- **Blog** --> Text field to be modified.
+- **Logout** --> Login Screen
 
 # Wireframes
-[INSERT PIC]
+![Wireframe](https://user-images.githubusercontent.com/59378562/141025753-bcccc76b-b88c-496c-a02c-f8f53a8320ef.jpg)
 
 ## Digital Wireframes & Mockups
-![Project](https://user-images.githubusercontent.com/59378562/141023633-857eb7b9-296b-422b-9ee8-dee71dbe7d38.png)
+![Project](https://user-images.githubusercontent.com/59378562/141025638-99b0fc3e-630b-41c1-af31-f2135e72bb63.png)
 
 ## Interactive Wireframe
 https://www.figma.com/proto/l9BzgvDghVJnCfdYsJzxHx/MyInvestSmart?node-id=19%3A88&scaling=min-zoom&page-id=0%3A1&starting-point-node-id=2%3A2
