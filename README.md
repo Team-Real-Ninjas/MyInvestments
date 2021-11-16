@@ -82,6 +82,7 @@ MyInvestments is a personal investment portfolio. It is a platform that allows f
 ## Interactive Wireframe
 https://www.figma.com/proto/l9BzgvDghVJnCfdYsJzxHx/MyInvestSmart?node-id=19%3A88&scaling=min-zoom&page-id=0%3A1&starting-point-node-id=2%3A2
 
+## Schema
 ### Models
 #### User
 
