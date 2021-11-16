@@ -81,3 +81,70 @@ MyInvestments is a personal investment portfolio. It is a platform that allows f
 
 ## Interactive Wireframe
 https://www.figma.com/proto/l9BzgvDghVJnCfdYsJzxHx/MyInvestSmart?node-id=19%3A88&scaling=min-zoom&page-id=0%3A1&starting-point-node-id=2%3A2
+
+### Models
+#### User
+
+   | Property      | Type     | Description |
+   | ------------- | -------- | ------------|
+   | userId        | String   | unique id for the user (default field) |
+   | firstName     | String   | first name of user |
+   | lastName      | String   | last name of user |
+   | phoneNumber   | String   | phone number of user |
+   | username      | String   | username of user |
+   | password      | String   | password of user |
+   | emailAddress  | String   | email address of user |
+   | Admin         | Boolean  | determines if user is an admin or not |
+   
+
+#### Investments
+
+   | Property      | Type     | Description |
+   | ------------- | -------- | ------------|
+   | investmentId  | String   | unique id for the investment (default field) |
+   | Type          | String   | type of investment |
+   | comment       | String   | detail about type of investment |
+   | purchaseAmount| Float    | price of investment |
+   | stockAmount   | Number   | number of likes for the post |
+   | createdAt     | DateTime | date when investment is created (default field) |
+   | updatedAt     | DateTime | date when investment is last updated (default field) |
+
+#### Posts
+
+   | Property      | Type     | Description |
+   | ------------- | -------- | ------------|
+   | postId        | String   | unique id for the post (default field) |
+   | contents      | String   | contents of post |
+   | likes         | Number   | number of likes on post |
+   | tags          | Array    | tags associated with post |
+   | showComments  | Bool     | decides whether to display contents or not |
+   | title         | String   | title of post |
+   | user          | Pointer to User | user associated with post |
+   | createdAt     | DateTime | date when post is created (default field) |
+   | updatedAt     | DateTime | date when post is last updated (default field) |
+
+#### Comments
+
+   | Property      | Type     | Description |
+   | ------------- | -------- | ------------|
+   | commentId     | String   | unique id for the comment post (default field) |
+   | contents      | String   | contents of comment |
+   | likes         | Number   | number of likes on post |
+   | user          | Pointer to User | user associated with comment |
+   | post          | Pointer to Post | post associated with user |
+   | createdAt     | DateTime | date when post is created (default field) |
+   | updatedAt     | DateTime | date when post is last updated (default field) |
+
+#### Session
+
+   | Property      | Type     | Description |
+   | ------------- | -------- | ------------|
+   | sessionId     | String   | unique id for the session (default field) |
+   | sessionToken  | String   | unique id for the session token (default field) |
+   | user          | Pointer to User | user associated with session |
+   | restricted    | Bool     | determines if session is restricted or not |
+   | installationId| String   | unique id for session installation (default field) |
+   | createdWith   | Object   | action used to create session (i.e. login) |
+   | createdAt     | DateTime | date when session is created (default field) |
+   | updatedAt     | DateTime | date when session is last updated (default field) |
+   | expiresAt     | DateTime | date when session expires (default field) |
