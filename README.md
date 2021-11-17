@@ -149,3 +149,13 @@ https://www.figma.com/proto/l9BzgvDghVJnCfdYsJzxHx/MyInvestSmart?node-id=19%3A88
    | createdAt     | DateTime | date when session is created (default field) |
    | updatedAt     | DateTime | date when session is last updated (default field) |
    | expiresAt     | DateTime | date when session expires (default field) |
+   
+### [IF EXISTS:] Existing API Endpoints
+
+   | HTTP Verb     | EndPoint | Description |
+   | ------------- | -------- | ------------|
+   | GET           | v2/reference/news | Get the most recent news articles relating to a stock ticker symbol, including a summary of the article and a link to the original source. |
+   | GET           | /v1/marketstatus/now | Get the current trading status of the exchanges and overall financial markets. |
+   | GET           | /v3/reference/tickers | Query all ticker symbols which are supported by Polygon.io. This API currently includes Stocks/Equities, Crypto, and Forex. |
+   | GET           | /v1/open-close/crypto/{from}/{to}/{date} | Get the open, close prices of a cryptocurrency symbol on a certain day. |
+   | GET           | /v1/marketstatus/now | Get the current trading status of the exchanges and overall financial markets. |
