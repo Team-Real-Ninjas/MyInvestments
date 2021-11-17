@@ -3,6 +3,7 @@
 1. [Overview](#Overview)
 2. [Product Spec](#Product-Spec)
 3. [Wireframes](#Wireframes)
+4. [Schema](#Schema)
 
 
 ## Overview
@@ -82,7 +83,7 @@ MyInvestments is a personal investment portfolio. It is a platform that allows f
 ## Interactive Wireframe
 https://www.figma.com/proto/l9BzgvDghVJnCfdYsJzxHx/MyInvestSmart?node-id=19%3A88&scaling=min-zoom&page-id=0%3A1&starting-point-node-id=2%3A2
 
-## Schema
+# Schema
 ### Models
 #### User
 
@@ -150,7 +151,109 @@ https://www.figma.com/proto/l9BzgvDghVJnCfdYsJzxHx/MyInvestSmart?node-id=19%3A88
    | updatedAt     | DateTime | date when session is last updated (default field) |
    | expiresAt     | DateTime | date when session expires (default field) |
    
+## Networking
+### List  of network requests by screen
+- Portfolio Screen
+	- (Read/GET)  Query all  investment posts where user is  the author
+	- (Create/POST) Create a new investement post
+	- (Update/PUT) Update investment posts
+
+- Blog Screen
+	- (Read/GET) Query all posts where user is author
+
+
+public Post getPostById(String id)throws ExecutionException, InterruptedException{
+    Post post = null;
+    //database connection object
+    Firestore db = FirestoreClient.getFirestore();
+    //retrieves a reference to the document(row) of the collection (table) with a specific id
+    DocumentReference postRef = db.collection("Post").document(id);
+
+    //ApiFuture allows us to make async calls to the database
+    ApiFuture<DocumentSnapshot> future = postRef.get();
+    //Retrieve document
+    DocumentSnapshot document = future.get();
+
+    //Convert JSON into Post class object
+    if(document.exists())
+    {
+        UserService service = new UserService();
+
+        DocumentReference userRef = (DocumentReference) document.get("author");
+        ApiFuture<DocumentSnapshot> userQuery = userRef.get();
+        DocumentSnapshot userDoc = userQuery.get();
+        User user = userDoc.toObject(User.class);
+
+        post =  new Post(document.getId(), document.getString("title") , document.getString("content"),
+                (ArrayList<String>) document.get("tags"), document.getBoolean("showComments")
+                , document.getLong("likes"), user);
+    }
+
+
+    return post;
+
+}
+
+	- (Create/POST) Create a new post
+        
+    public String createPost(RestPost post) throws ExecutionException, InterruptedException{
+        //database connection object
+        Firestore db = FirestoreClient.getFirestore();
+        ApiFuture<DocumentReference> postRef = db.collection("Post").add(post);
+        return postRef.get().getId();
+    }
+}
+
+	- (Create/POST) Create a new comment on a post
+	- (Delete) Delete existing comment
+   
+    public Boolean deleteComment(String  num) throws ExecutionException, InterruptedException{
+        //database connection object
+        Firestore db = FirestoreClient.getFirestore();
+	    ApiFuture<WriteResult> writeResult = db.collection("Comment").document(num).delete();
+	if( writeResult.get().getUpdateTime() != null)
+        return true;
+	
+	     return false;
+    }
+ 
+- Account Screen
+	- (Read/GET) Query user basic details (Stretch)**
+	- (Update/PUT) Update user profile image (Strecth)**
+        
+
+       public RestUser updateUserProfileImage(String num) throws ExecutionException, InterruptedException {
+        ObjectMapper mapObject = new ObjectMapper();
+        Firestore db = FirestoreClient.getFirestore();
+
+        DocumentReference userRef = db.collection("User").document(id)
+	      DocumentSnapshot docs = (DocumentSnapshot) userRef.get().get();
+
+        //ApiFuture allows uss to make async calls to database
+        ApiFuture<QuerySnapshot> futurepNum = query.get();
+        List<QueryDocumentSnapshot> docs = futurepNum.get().getDocuments();
+
+
+        if(docs.size() > 0){
+            DocumentReference doc = docs.get(0).getReference();
+            //String refers to value name ... Object is what we are passing into it
+            Map<String, Object> update = new HashMap<>();
+            update.put("profileImage", user.getProfileImage());
+ 
+            //Async Document Update
+            ApiFuture<WriteResult> writeResult = doc.update(update);
+        }
+        return user;
+    }
+}
+        
+
+   
 ### [IF EXISTS:] Existing API Endpoints
+        
+  # Polygon Stock API      
+    
+    - Base URL - (https://polygon.io/docs/getting-started)     
 
    | HTTP Verb     | EndPoint | Description |
    | ------------- | -------- | ------------|
@@ -159,3 +262,6 @@ https://www.figma.com/proto/l9BzgvDghVJnCfdYsJzxHx/MyInvestSmart?node-id=19%3A88
    | GET           | /v3/reference/tickers | Query all ticker symbols which are supported by Polygon.io. This API currently includes Stocks/Equities, Crypto, and Forex. |
    | GET           | /v1/open-close/crypto/{from}/{to}/{date} | Get the open, close prices of a cryptocurrency symbol on a certain day. |
    | GET           | /v1/marketstatus/now | Get the current trading status of the exchanges and overall financial markets. |
+   
+   
+   
