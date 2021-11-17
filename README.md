@@ -162,37 +162,36 @@ https://www.figma.com/proto/l9BzgvDghVJnCfdYsJzxHx/MyInvestSmart?node-id=19%3A88
 	- (Read/GET) Query all posts where user is author
 
 
-public Post getPostById(String id)throws ExecutionException, InterruptedException{
-    Post post = null;
-    //database connection object
-    Firestore db = FirestoreClient.getFirestore();
-    //retrieves a reference to the document(row) of the collection (table) with a specific id
-    DocumentReference postRef = db.collection("Post").document(id);
+	public Post getPostById(String id)throws ExecutionException, InterruptedException{
+	    Post post = null;
+	    //database connection object
+	    Firestore db = FirestoreClient.getFirestore();
+	    //retrieves a reference to the document(row) of the collection (table) with a specific id
+	    DocumentReference postRef = db.collection("Post").document(id);
 
-    //ApiFuture allows us to make async calls to the database
-    ApiFuture<DocumentSnapshot> future = postRef.get();
-    //Retrieve document
-    DocumentSnapshot document = future.get();
+	    //ApiFuture allows us to make async calls to the database
+	    ApiFuture<DocumentSnapshot> future = postRef.get();
+	    //Retrieve document
+	    DocumentSnapshot document = future.get();
 
-    //Convert JSON into Post class object
-    if(document.exists())
-    {
-        UserService service = new UserService();
+		    //Convert JSON into Post class object
+		    if(document.exists())
+		    {
+			UserService service = new UserService();
 
-        DocumentReference userRef = (DocumentReference) document.get("author");
-        ApiFuture<DocumentSnapshot> userQuery = userRef.get();
-        DocumentSnapshot userDoc = userQuery.get();
-        User user = userDoc.toObject(User.class);
+			DocumentReference userRef = (DocumentReference) document.get("author");
+			ApiFuture<DocumentSnapshot> userQuery = userRef.get();
+			DocumentSnapshot userDoc = userQuery.get();
+			User user = userDoc.toObject(User.class);
 
-        post =  new Post(document.getId(), document.getString("title") , document.getString("content"),
-                (ArrayList<String>) document.get("tags"), document.getBoolean("showComments")
-                , document.getLong("likes"), user);
-    }
+			post =  new Post(document.getId(), document.getString("title") , document.getString("content"),
+				(ArrayList<String>) document.get("tags"), document.getBoolean("showComments")
+				, document.getLong("likes"), user);
+		    }
 
 
-    return post;
-
-}
+	    return post;
+	 }
 
 	- (Create/POST) Create a new post
         
@@ -202,7 +201,6 @@ public Post getPostById(String id)throws ExecutionException, InterruptedExceptio
         ApiFuture<DocumentReference> postRef = db.collection("Post").add(post);
         return postRef.get().getId();
     }
-}
 
 	- (Create/POST) Create a new comment on a post
 	- (Delete) Delete existing comment
@@ -222,7 +220,7 @@ public Post getPostById(String id)throws ExecutionException, InterruptedExceptio
 	- (Update/PUT) Update user profile image (Strecth)**
         
 
-       public RestUser updateUserProfileImage(String num) throws ExecutionException, InterruptedException {
+     public RestUser updateUserProfileImage(String num) throws ExecutionException, InterruptedException {
         ObjectMapper mapObject = new ObjectMapper();
         Firestore db = FirestoreClient.getFirestore();
 
@@ -244,8 +242,8 @@ public Post getPostById(String id)throws ExecutionException, InterruptedExceptio
             ApiFuture<WriteResult> writeResult = doc.update(update);
         }
         return user;
-    }
-}
+     }
+
         
 
    
