@@ -161,7 +161,7 @@ https://www.figma.com/proto/l9BzgvDghVJnCfdYsJzxHx/MyInvestSmart?node-id=19%3A88
 - Blog Screen
 	- (Read/GET) Query all posts where user is author
 
-
+```
 	public Post getPostById(String id)throws ExecutionException, InterruptedException{
 	    Post post = null;
 	    //database connection object
@@ -192,19 +192,22 @@ https://www.figma.com/proto/l9BzgvDghVJnCfdYsJzxHx/MyInvestSmart?node-id=19%3A88
 
 	    return post;
 	 }
-
+```
 	- (Create/POST) Create a new post
-        
+	
+	
+```      
     public String createPost(RestPost post) throws ExecutionException, InterruptedException{
         //database connection object
         Firestore db = FirestoreClient.getFirestore();
         ApiFuture<DocumentReference> postRef = db.collection("Post").add(post);
         return postRef.get().getId();
     }
+```	
 
 	- (Create/POST) Create a new comment on a post
 	- (Delete) Delete existing comment
-   
+```   
     public Boolean deleteComment(String  num) throws ExecutionException, InterruptedException{
         //database connection object
         Firestore db = FirestoreClient.getFirestore();
@@ -214,12 +217,12 @@ https://www.figma.com/proto/l9BzgvDghVJnCfdYsJzxHx/MyInvestSmart?node-id=19%3A88
 	
 	     return false;
     }
- 
+``` 
 - Account Screen
 	- (Read/GET) Query user basic details (Stretch)**
 	- (Update/PUT) Update user profile image (Strecth)**
         
-
+```
      public RestUser updateUserProfileImage(String num) throws ExecutionException, InterruptedException {
         ObjectMapper mapObject = new ObjectMapper();
         Firestore db = FirestoreClient.getFirestore();
@@ -244,7 +247,7 @@ https://www.figma.com/proto/l9BzgvDghVJnCfdYsJzxHx/MyInvestSmart?node-id=19%3A88
         return user;
      }
 
-        
+```       
 
    
 ### [IF EXISTS:] Existing API Endpoints
