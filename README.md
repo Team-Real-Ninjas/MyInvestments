@@ -104,11 +104,11 @@ https://www.figma.com/proto/l9BzgvDghVJnCfdYsJzxHx/MyInvestSmart?node-id=19%3A88
    | Property      | Type     | Description |
    | ------------- | -------- | ------------|
    | investmentId  | String   | unique id for the investment (default field) |
-   | createdBt     | Refrence to USER | user associated with this Investment INPUT |
+   | createdBy     | Refrence to USER | user associated with this Investment INPUT |
    | type          | String   | type of investment |
    | comment       | String   | detail about type of investment |
    | purchaseAmount| Float    | price of investment |
-   | stockAmount   | Number   | number of likes for the post |
+   | stockAmount   | Number   | price of stock at the time of investment |
    | createdAt     | DateTime | date when investment is created (default field) |
    | updatedAt     | DateTime | date when investment is last updated (default field) |
 
