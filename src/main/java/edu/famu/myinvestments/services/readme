@@ -1,0 +1,6 @@
+
+SERVICES--> applications the business logic
+
+As such we will be write the logic of how data in handled in our service classes.
+These classes will contain the logic of retrieving and sending data between the application
+and Firebase, as well as any data manipulation required.
