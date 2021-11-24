@@ -96,7 +96,7 @@ https://www.figma.com/proto/l9BzgvDghVJnCfdYsJzxHx/MyInvestSmart?node-id=19%3A88
    | username      | String   | username of user |
    | password      | String   | password of user |
    | emailAddress  | String   | email address of user |
-   | Admin         | Boolean  | determines if user is an admin or not |
+   | admin         | Boolean  | determines if user is an admin or not |
    
 
 #### Investments
@@ -104,7 +104,7 @@ https://www.figma.com/proto/l9BzgvDghVJnCfdYsJzxHx/MyInvestSmart?node-id=19%3A88
    | Property      | Type     | Description |
    | ------------- | -------- | ------------|
    | investmentId  | String   | unique id for the investment (default field) |
-   | Type          | String   | type of investment |
+   | type          | String   | type of investment |
    | comment       | String   | detail about type of investment |
    | purchaseAmount| Float    | price of investment |
    | stockAmount   | Number   | number of likes for the post |
