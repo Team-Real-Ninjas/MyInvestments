@@ -104,6 +104,7 @@ https://www.figma.com/proto/l9BzgvDghVJnCfdYsJzxHx/MyInvestSmart?node-id=19%3A88
    | Property      | Type     | Description |
    | ------------- | -------- | ------------|
    | investmentId  | String   | unique id for the investment (default field) |
+   | createdBt     | Refrence to USER | user associated with this Investment INPUT |
    | type          | String   | type of investment |
    | comment       | String   | detail about type of investment |
    | purchaseAmount| Float    | price of investment |
@@ -116,12 +117,12 @@ https://www.figma.com/proto/l9BzgvDghVJnCfdYsJzxHx/MyInvestSmart?node-id=19%3A88
    | Property      | Type     | Description |
    | ------------- | -------- | ------------|
    | postId        | String   | unique id for the post (default field) |
+   | author          | Refrence to USER | user associated with post |
    | contents      | String   | contents of post |
    | likes         | Number   | number of likes on post |
    | tags          | Array    | tags associated with post |
    | showComments  | Bool     | decides whether to display contents or not |
    | title         | String   | title of post |
-   | user          | Pointer to User | user associated with post |
    | createdAt     | DateTime | date when post is created (default field) |
    | updatedAt     | DateTime | date when post is last updated (default field) |
 
@@ -132,8 +133,8 @@ https://www.figma.com/proto/l9BzgvDghVJnCfdYsJzxHx/MyInvestSmart?node-id=19%3A88
    | commentId     | String   | unique id for the comment post (default field) |
    | contents      | String   | contents of comment |
    | likes         | Number   | number of likes on post |
-   | user          | Pointer to User | user associated with comment |
-   | post          | Pointer to Post | post associated with user |
+   | user          | Refrence to USER | user associated with comment |
+   | post          | Refrence to POST | post associated with user |
    | createdAt     | DateTime | date when post is created (default field) |
    | updatedAt     | DateTime | date when post is last updated (default field) |
 
