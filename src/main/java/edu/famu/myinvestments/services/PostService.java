@@ -3,10 +3,7 @@ package edu.famu.myinvestments.services;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.*;
 import com.google.firebase.cloud.FirestoreClient;
-import edu.famu.myinvestments.models.Comment;
-import edu.famu.myinvestments.models.Post;
-import edu.famu.myinvestments.models.RestPost;
-import edu.famu.myinvestments.models.User;
+import edu.famu.myinvestments.models.*;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -56,46 +53,54 @@ class PostService {
 
     }
 
+    public String createPost(RestPost post) throws ExecutionException, InterruptedException{
+        //database connection object
+        Firestore db = FirestoreClient.getFirestore();
+        ApiFuture<DocumentReference> postRef = db.collection("Posts").add(post);
+        return postRef.get().getId();
+    }
+
     public List<Comment> getPostComments(String id)throws ExecutionException, InterruptedException{
 
         Post post = getPostById(id);
 
         if(post != null)
         {
-            List<Comment> comments = new ArrayList<>();
+            List<Comment> comments = new ArrayList();
             //database connection object
             Firestore db = FirestoreClient.getFirestore();
 
             //retrieves a reference to the document(row) of the collection (table) with a specific id
-            DocumentReference postRef = db.collection("Post").document(id);
+            DocumentReference postRef = db.collection("Posts").document(id);
 
             //Query for post by post
-            Query commentQuery = db.collectionGroup("Comment").whereEqualTo("post", postRef);
+            Query commentQuery = db.collectionGroup("Comments").whereEqualTo("post", postRef);
             ApiFuture<QuerySnapshot> querySnapshot = commentQuery.get();
 
             //loop over results and create Comment objects
             for(DocumentSnapshot document : querySnapshot.get().getDocuments())
             {
-                User author;
+                User user;
 
-                DocumentReference authorRef = (DocumentReference) document.get("author");
+                DocumentReference userRef = (DocumentReference) document.get("user");
                 //ApiFuture allows us to make async calls to the database
-                ApiFuture<DocumentSnapshot> future = authorRef.get();
+                ApiFuture<DocumentSnapshot> future = userRef.get();
                 //Retrieve document
-                DocumentSnapshot authorDoc = future.get();
+                DocumentSnapshot userDoc = future.get();
 
-                if(authorDoc.exists())
-                    author = authorDoc.toObject(User.class);
+                if(userDoc.exists())
+                    user = userDoc.toObject(User.class);
                 else
                 {
-                    author = new User();
-                    author.setUsername("unknown");
+                    user = new User();
+                    user.setFirstName("Unknown");
+                    user.setLastName("User");
                 }
 
                 //add the comment to the list
                 comments.add(new Comment(document.getId(),
                         document.getString("content"),
-                        document.getLong("likes"), author, post));
+                        document.getLong("likes"), user, post));
             }
 
             return comments;
@@ -103,11 +108,23 @@ class PostService {
         return null;
     }
 
-    public String createPost(RestPost post) throws ExecutionException, InterruptedException{
+    public String createComment(RestComment comment) throws ExecutionException, InterruptedException{
         //database connection object
         Firestore db = FirestoreClient.getFirestore();
-        ApiFuture<DocumentReference> postRef = db.collection("Post").add(post);
-        return postRef.get().getId();
+        ApiFuture<DocumentReference> commentRef = db.collection("Comments").add(comment);
+        return commentRef.get().getId();
+    }
+
+
+    //HOWW DO I CALL THIS FUNCTION?
+    public Boolean deletePostComment(String id) throws ExecutionException, InterruptedException{
+        //database connection object
+        Firestore db = FirestoreClient.getFirestore();
+        ApiFuture<WriteResult> writeResult = db.collection("Comments").document(id).delete();
+        if( writeResult.get().getUpdateTime() != null)
+            return true;
+
+        return false;
     }
 }
 

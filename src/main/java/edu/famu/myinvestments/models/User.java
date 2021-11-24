@@ -6,7 +6,7 @@ import com.google.cloud.firestore.annotation.DocumentId;
 public class User {
     @DocumentId
     protected String id;
-    protected String userid;
+    protected String userId;
     protected String firstName;
     protected String lastName;
     protected String phoneNumber;
@@ -21,11 +21,11 @@ public class User {
 
     }
 
-    public User(String id, String userid, String firstName, String lastName, String phoneNumber,
+    public User(String id, String userId, String firstName, String lastName, String phoneNumber,
                 String username, String emailAddress, String userImage,
                 String password, Boolean admin) {
         this.id = id;
-        this.userid = userid;
+        this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
@@ -39,7 +39,7 @@ public class User {
     public User(String id, String userid, String firstName, String lastName, String phoneNumber,
                 String username, String emailAddress) {
         this.id = id;
-        this.userid = userid;
+        this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
@@ -59,11 +59,11 @@ public class User {
     }
 
     public String getUserid() {
-        return userid;
+        return userId;
     }
 
-    public void setUserid(String userid) {
-        this.userid = userid;
+    public void setUserid(String userId) {
+        this.userId = userId;
     }
 
     public String getFirstName() {

@@ -21,15 +21,6 @@ public class RestComment extends BaseComment {
         this.post = post;
     }
 
-    public RestComment(String id, String content, long likes, String user,
-                       DocumentReference post) {
-        this.id = id;
-        this.content = content;
-        this.likes = likes;
-        this.setUser(user);
-        this.post = post;
-    }
-
     public DocumentReference getUser() {
         return user;
     }
