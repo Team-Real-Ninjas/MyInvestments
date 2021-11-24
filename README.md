@@ -266,4 +266,6 @@ https://www.figma.com/proto/l9BzgvDghVJnCfdYsJzxHx/MyInvestSmart?node-id=19%3A88
    | GET           | /v1/marketstatus/now | Get the current trading status of the exchanges and overall financial markets. |
    
    
+   ### Build Progress
    
+   gifs/pictures unavailable, build still in progress
