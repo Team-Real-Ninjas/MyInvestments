@@ -1,7 +1,10 @@
 package edu.famu.myinvestments.models;
 
+import com.google.cloud.Timestamp;
 import com.google.cloud.firestore.annotation.DocumentId;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -13,7 +16,7 @@ public class BaseInvestments {
     protected Number purchaseAmount;
     protected Number stockAmount;
     protected Date createdAt;
-    protected Date updatedAt;
+    protected Timestamp updatedAt;
 
     public String getId() {
         return id;
@@ -59,15 +62,18 @@ public class BaseInvestments {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
+    public void setCreatedAt(String createdAt) throws ParseException {
+
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-ddTHH:mm:ss.SSS");
+        this.createdAt = df.parse(createdAt);
+        //this.createdAt = createdAt;
     }
 
-    public Date getUpdatedAt() {
+    public Timestamp getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(Date updatedAt) {
+    public void setUpdatedAt(Timestamp updatedAt) {
         this.updatedAt = updatedAt;
     }
 

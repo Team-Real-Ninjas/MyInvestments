@@ -33,12 +33,10 @@ public class InvestmentRestController {
         }
 
         //HOW TO MAP AN UPDATE
-    /*
+
         @PutMapping("/{id}")
         //UPDATE INVESTMENT BASED OFF OF ID
         public RestInvestments updateInvestment(@RequestBody RestInvestments investments) throws ExecutionException, InterruptedException {
             return investmentService.updateInvestment(investments);
         }
-
-     */
 }

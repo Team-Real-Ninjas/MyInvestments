@@ -1,5 +1,7 @@
 package edu.famu.myinvestments.models;
 
+import com.google.cloud.Timestamp;
+
 import java.util.Date;
 
 public class Investments extends BaseInvestments {
@@ -10,7 +12,7 @@ public class Investments extends BaseInvestments {
         }
         public Investments(String id, User createdBy, String type,
                            String comment, Number purchaseAmount, Number stockAmount,
-                           Date createdAt, Date updatedAt ){
+                           Date createdAt, Timestamp updatedAt ){
         this.id = id;
         this.createdBy = createdBy;
         this.type = type;

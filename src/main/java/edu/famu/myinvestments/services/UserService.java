@@ -115,7 +115,7 @@ public class UserService {
                     document.getDouble("purchaseAmount"),
                     document.getDouble("stockAmount"),
                     (document.getTimestamp("updatedAt").toDate()),
-                    ((document.getTimestamp("createdAt").toDate()))));
+                    ((document.getTimestamp("createdAt")))));
         }
 
 

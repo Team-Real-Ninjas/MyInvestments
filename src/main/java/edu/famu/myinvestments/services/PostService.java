@@ -116,7 +116,6 @@ class PostService {
     }
 
 
-    //HOWW DO I CALL THIS FUNCTION?
     public Boolean deletePostComment(String id) throws ExecutionException, InterruptedException{
         //database connection object
         Firestore db = FirestoreClient.getFirestore();

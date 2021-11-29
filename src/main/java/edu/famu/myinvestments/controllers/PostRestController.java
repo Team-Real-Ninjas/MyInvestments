@@ -48,11 +48,11 @@ public class PostRestController {
 
     //HOWWC TO CALL DELETING MAP
 
-    /*
-    @DeleteMapping Mapping("/comments/{id}")
+
+    @DeleteMapping ("/comments/{id}")
     //DELETES COMMENT BASED OFF OF COMMENT ID
     public Boolean deletePostComment(@PathVariable(name="id") String id)throws ExecutionException, InterruptedException {
         return postService.deletePostComment(id);
     }
-     */
+
 }

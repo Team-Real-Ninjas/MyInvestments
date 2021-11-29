@@ -48,10 +48,11 @@ public class InvestmentService {
                         document.getDouble("purchaseAmount"),
                         document.getDouble("stockAmount"),
                         (document.getTimestamp("updatedAt").toDate()),
-                        ((document.getTimestamp("createdAt").toDate())));
+                        ((document.getTimestamp("createdAt"))));
             }
 
 
+            //RETURNS A NEW INVESTMENT OBJECT BASED OFF THE INPUT ID
             return Investment;
 
         }
@@ -60,12 +61,12 @@ public class InvestmentService {
             //database connection object
             Firestore db = FirestoreClient.getFirestore();
             ApiFuture<DocumentReference> invRef = db.collection("Investments").add(investment);
-            return invRef.get().getId();
+            return invRef.get().getId(); //RETURNS THE ID FROM THE INVESTMENT DOCUMENT CREATED
         }
 
         //HOWWC IS THIS CORRECT?
         public RestInvestments updateInvestment(RestInvestments investments) throws ExecutionException, InterruptedException {
-            ObjectMapper mapObject = new ObjectMapper();
+            //ObjectMapper mapObject = new ObjectMapper();
             Firestore db = FirestoreClient.getFirestore();
             Query query = db.collection("Investments").whereEqualTo("id", investments.getId());
 
@@ -76,18 +77,22 @@ public class InvestmentService {
             // DocumentSnapshot doc = (DocumentSnapshot) query.get();
 
             if(docs.size() > 0){
+
+                //Gets the returned document reference as variable "doc"
                 DocumentReference doc = docs.get(0).getReference();
-                //String refers to value name ... Object is what we are passing into it
+                //String refers to the Key value in the MAP.
+                // NOTE:  A DOCUMENT REFERENCE ALL KEYS(VALUE NAMES) ARE STRINGS
+                // ... Object is what we are passing into the mapped
                 Map<String, Object> update = new HashMap<>();
 
-                update.put("id", investments.getId());
-                update.put("createdBy", investments.getCreatedBy());
+               // update.put("id", investments.getId());
+               // update.put("createdBy", investments.getCreatedBy());
                 update.put("type", investments.getType());
                 update.put("comment", investments.getComment());
                 update.put("purchaseAmount", investments.getPurchaseAmount());
                 update.put("stockAmount", investments.getStockAmount());
                 update.put("createdAt", investments.getCreatedAt());
-                update.put("createdBy", investments.getCreatedBy());
+              //  update.put("createdBy", investments.getCreatedBy());
 
                 //Async Document Update
                 ApiFuture<WriteResult> writeResult = doc.update(update);
