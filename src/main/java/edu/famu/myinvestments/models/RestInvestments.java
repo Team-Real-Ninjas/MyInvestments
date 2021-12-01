@@ -15,7 +15,7 @@ public class RestInvestments extends BaseInvestments {
         }
         public RestInvestments(String id, DocumentReference createdBy, String type,
                                String comment, Number purchaseAmount, Number stockAmount,
-                               Date createdAt, Timestamp updatedAt ){
+                               Date createdAt, Date updatedAt ){
             this.id = id;
             this.createdBy = createdBy;
             this.type = type;
@@ -28,7 +28,7 @@ public class RestInvestments extends BaseInvestments {
 
     public RestInvestments(String id,  String createdBy,String type,
                            String comment, Number purchaseAmount, Number stockAmount,
-                           Date createdAt, Timestamp updatedAt){
+                           Date createdAt, Date updatedAt){
         this.id = id;
         this.setCreatedBy(createdBy);
         this.type = type;

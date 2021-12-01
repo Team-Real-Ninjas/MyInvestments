@@ -1,5 +1,6 @@
 package edu.famu.myinvestments.controllers;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import edu.famu.myinvestments.models.*;
 import edu.famu.myinvestments.services.InvestmentService;
 import edu.famu.myinvestments.services.PostService;
@@ -34,9 +35,9 @@ public class InvestmentRestController {
 
         //HOW TO MAP AN UPDATE
 
-        @PutMapping("/{id}")
+        @PutMapping("/")
         //UPDATE INVESTMENT BASED OFF OF ID
-        public RestInvestments updateInvestment(@RequestBody RestInvestments investments) throws ExecutionException, InterruptedException {
+        public boolean updateInvestment(@RequestBody String investments) throws ExecutionException, InterruptedException, JsonProcessingException {
             return investmentService.updateInvestment(investments);
         }
 }

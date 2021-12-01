@@ -12,7 +12,7 @@ public class Investments extends BaseInvestments {
         }
         public Investments(String id, User createdBy, String type,
                            String comment, Number purchaseAmount, Number stockAmount,
-                           Date createdAt, Timestamp updatedAt ){
+                           Date createdAt, Date updatedAt ){
         this.id = id;
         this.createdBy = createdBy;
         this.type = type;

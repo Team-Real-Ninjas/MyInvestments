@@ -16,13 +16,13 @@ public class BaseInvestments {
     protected Number purchaseAmount;
     protected Number stockAmount;
     protected Date createdAt;
-    protected Timestamp updatedAt;
+    protected Date updatedAt;
 
     public String getId() {
         return id;
     }
 
-    public void setInvestmentId(String id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -62,19 +62,18 @@ public class BaseInvestments {
         return createdAt;
     }
 
-    public void setCreatedAt(String createdAt) throws ParseException {
 
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-ddTHH:mm:ss.SSS");
-        this.createdAt = df.parse(createdAt);
-        //this.createdAt = createdAt;
+    public void setCreatedAt(Timestamp createdAt)   {
+        this.createdAt = createdAt.toDate();
     }
 
-    public Timestamp getUpdatedAt() {
+    public Date getUpdatedAt() {
+
         return updatedAt;
     }
 
-    public void setUpdatedAt(Timestamp updatedAt) {
-        this.updatedAt = updatedAt;
+    public void setUpdatedAt(Timestamp updatedAt){
+        this.updatedAt = updatedAt.toDate();
     }
 
 }
