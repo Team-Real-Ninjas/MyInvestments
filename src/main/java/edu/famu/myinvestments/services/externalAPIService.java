@@ -5,8 +5,11 @@ import io.netty.channel.ChannelOption;
 import io.netty.handler.timeout.ReadTimeoutHandler;
 import io.netty.handler.timeout.WriteTimeoutHandler;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.client.reactive.ClientHttpConnector;
 import org.springframework.http.client.reactive.ReactorClientHttpConnector;
+import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.netty.http.client.HttpClient;
 
@@ -16,44 +19,52 @@ import java.util.concurrent.TimeUnit;
 
 
 //  Connect to external api
+@Service
 public class externalAPIService {
-
 
     //MAPS VALUE TO VALUE IN THE PROPERTIES FILE
     @Value("${my.apiKey}")
     private String apiKey;
 
-    /*
-    Creating a WebClient Instance with Timeouts
 
-        Oftentimes, the default HTTP timeouts of 30 seconds are too slow for our needs, to customize this behavior,
-        we can create an HttpClient instance and configure our WebClient to use it.
-   */
-    HttpClient httpClient = HttpClient.create()
-            //set the connection timeout via the ChannelOption.CONNECT_TIMEOUT_MILLIS option
-            .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 5000)
-            .responseTimeout(Duration.ofMillis(5000))
-            .doOnConnected(conn ->
-                    //set the read and write timeouts using a ReadTimeoutHandler and a WriteTimeoutHandler,
-                    // respectively
-                    conn.addHandlerLast(new ReadTimeoutHandler(5000, TimeUnit.MILLISECONDS))
-                            .addHandlerLast(new WriteTimeoutHandler(5000, TimeUnit.MILLISECONDS)));
 
-    /*
-    Creating a WebClient Instance
-         The third option (and the most advanced one) is building a client by using the
-         DefaultWebClientBuilder class, which allows full customization
+            /*
+             *
+             * Creating a WebClient Instance with Timeouts
+             *
+             *   Oftentimes, the default HTTP timeouts of 30 seconds are too slow for our needs, to customize this behavior,
+             *  we can create an HttpClient instance and configure our WebClient to use it.
+           */
 
-     */
-    WebClient client = WebClient.builder()
-            .baseUrl("https://api.polygon.io/")
-            //configure a response timeout using the responseTimeout directive
-            .clientConnector(new ReactorClientHttpConnector(httpClient))
-            .defaultCookie("cookieKey", "cookieValue")
-            .defaultHeader(HttpHeaders.AUTHORIZATION, apiKey)
-            .defaultUriVariables(Collections.singletonMap( "https://api.polygon.io/", "url"))
-            .build();
+    @Bean
+    public WebClient getWebClient() {
+        HttpClient httpClient = HttpClient.create()
+                //set the connection timeout via the ChannelOption.CONNECT_TIMEOUT_MILLIS option
+                .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 5000)
+                .responseTimeout(Duration.ofMillis(5000))
+                .doOnConnected(conn -> conn
+                        //set the read and write timeouts using a ReadTimeoutHandler and a WriteTimeoutHandler,
+                        // respectively
+                        .addHandlerLast(new ReadTimeoutHandler(5000, TimeUnit.MILLISECONDS))
+                        .addHandlerLast(new WriteTimeoutHandler(5000, TimeUnit.MILLISECONDS)));
 
+        ClientHttpConnector connector = new ReactorClientHttpConnector(httpClient);
+
+                /*
+                 Creating a WebClient Instance
+                 The third option (and the most advanced one) is building a client by using the
+                 DefaultWebClientBuilder class, which allows full customization
+                */
+
+        return WebClient.builder()
+                .baseUrl("https://api.polygon.io/")
+                //configure a response timeout using the responseTimeout directive
+                .clientConnector(new ReactorClientHttpConnector(httpClient))
+                .defaultCookie("cookieKey", "cookieValue")
+                .defaultHeader(HttpHeaders.AUTHORIZATION, apiKey)
+                .defaultUriVariables(Collections.singletonMap("https://api.polygon.io/", "url"))
+                .build();
+    }
 
 
 /*
@@ -65,9 +76,22 @@ public class externalAPIService {
             .bodyToMono(Employee.class);
 
  */
-    //Get a single ticker supported by Polygon.io.
-    //This response will have detailed information about the ticker and the company behind it.
+
+
+    /*
+            HOME PAGE --> STOCK CHART (Minute and Day
+            Get the current minute, day, and previous day’s aggregate,
+            as well as the last trade and quote for a single traded currency symbol.
+            /v2/snapshot/locale/global/markets/forex/tickers/{ticker}
+     */
+
+    /*
+           HOME PAGE --> MAYBE
+    Get a single ticker supported by Polygon.io.
+    This response will have detailed information about the ticker and the company behind it.
     //GET  /vX/reference/tickers/{ticker}
+     */
+
 
 
     //Get the current trading status of the exchanges and overall financial markets

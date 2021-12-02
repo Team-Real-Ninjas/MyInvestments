@@ -10,18 +10,21 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
+
 @Controller
-public class PostController {
+@RequestMapping("/mysmartinvestments/blog")
+public class BlogController {
 
     private PostService postService;
     private UserService userService;
 
     @Autowired
-    public PostController(PostService postService, UserService userService) {
+    public BlogController(PostService postService, UserService userService) {
         this.postService = postService;
         this.userService = userService;
     }
@@ -34,7 +37,7 @@ public class PostController {
      */
 
     //  public List<Post> getPostByUserId(String id) WOULD I RETURN THIS FOR A BLOG
-    @GetMapping("/blog/{user}")
+    @GetMapping("/user/{user}")
     public String getPosts(@PathVariable("user")String user, Model model) throws ExecutionException, InterruptedException {
         List<Post> posts = userService.getPostByUserId(user);
         model.addAttribute("posts", posts);
@@ -48,7 +51,7 @@ public class PostController {
      * @param model
      * @return name of the view
      */
-    @GetMapping("/post/{id}")
+    @GetMapping("/user/post/{id}")
     //HOW WOULD I USE THIS TO DISPLAY ALL POSTS ON THE SCREEN . IN SQUARE SHAPE SIMILAR TO THE MOVIES
     //LOOP THROUGH THE GET POSTS IN HTML?
     public String getPost(@PathVariable("id") String id, Model model) throws ExecutionException, InterruptedException {
