@@ -22,7 +22,7 @@ MyInvestments is a personal investment portfolio. It is a platform that allows f
 ### 1. User Stories (Required and Optional)
 
 ### Required Must-have Stories
-- User should be able to log in using secure password and email
+[x] User should be able to log in using secure password and email
 - User should be able to interact(see specific prices for the points on the graph) and 
 - User should be able to input investments into their portfolio
 - User should be able to view portfolio history.
@@ -266,4 +266,6 @@ https://www.figma.com/proto/l9BzgvDghVJnCfdYsJzxHx/MyInvestSmart?node-id=19%3A88
    | GET           | /v1/marketstatus/now | Get the current trading status of the exchanges and overall financial markets. |
    
    
+   ### Build Progress
    
+   gifs/pictures unavailable, build still in progress
