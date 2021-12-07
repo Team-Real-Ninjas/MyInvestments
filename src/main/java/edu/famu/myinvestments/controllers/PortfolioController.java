@@ -6,20 +6,24 @@ import edu.famu.myinvestments.models.Post;
 import edu.famu.myinvestments.services.InvestmentService;
 import edu.famu.myinvestments.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
-public class InvestmentController {
+@Controller
+@RequestMapping("/mysmartinvestments/portfolio")
+public class PortfolioController {
 
     private InvestmentService investmentService;
     private UserService userService;
 
     @Autowired
-    public InvestmentController(InvestmentService investmentService, UserService userService) {
+    public PortfolioController(InvestmentService investmentService, UserService userService) {
         this.investmentService = investmentService;
         this.userService = userService;
     }
