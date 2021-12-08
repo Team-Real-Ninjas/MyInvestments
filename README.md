@@ -261,9 +261,9 @@ https://www.figma.com/proto/l9BzgvDghVJnCfdYsJzxHx/MyInvestSmart?node-id=19%3A88
    | ------------- | -------- | ------------|
    | GET           | v2/reference/news | Get the most recent news articles relating to a stock ticker symbol, including a summary of the article and a link to the original source. |
    | GET           | /v1/marketstatus/now | Get the current trading status of the exchanges and overall financial markets. |
-   | GET           | /v3/reference/tickers | Query all ticker symbols which are supported by Polygon.io. This API currently includes Stocks/Equities, Crypto, and Forex. |
+   | GET           | /vX/reference/tickers/{ticker} |  Get a single ticker supported by Polygon.io. The response will have detailed information about the ticker and the company behind it. |
    | GET           | /v1/open-close/crypto/{from}/{to}/{date} | Get the open, close prices of a cryptocurrency symbol on a certain day. |
-   | GET           | /v1/marketstatus/now | Get the current trading status of the exchanges and overall financial markets. |
+
    
    
    ### Build Progress
