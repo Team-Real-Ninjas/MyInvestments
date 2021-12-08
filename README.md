@@ -24,9 +24,9 @@ MyInvestments is a personal investment portfolio. It is a platform that allows f
 ### Required Must-have Stories
 [x] User should be able to log in using secure password and email
 - User should be able to interact(see specific prices for the points on the graph) and 
-- User should be able to input investments into their portfolio
+[x] User should be able to input investments into their portfolio
 - User should be able to view portfolio history.
-- User should be able to make blog posts(Given Template) and save them to the blog tab
+[x] User should be able to make blog posts(Given Template) and save them to the blog tab
 
 ### Optional Nice-to-have Stories
 - User should be able to see their basic details
