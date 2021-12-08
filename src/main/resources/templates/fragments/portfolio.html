@@ -10,24 +10,7 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <table class="table table-striped">
-                        <thead>
-                        <tr><th>Title</th><th>Likes</th><th>Actions</th></tr>
-                        </thead>
-                        <tbody>
-                        <!--/*@thymesVar id="posts" type="List<Post>"*/-->
-
-                        <tr th:each="post : ${posts}">
-
-                            <td><a th:href="@{/post/{id}(id=${post.id})}" th:text="${post.title}">Post Title</a></td>
-                            <td th:text="${post.likes}">0</td>
-                            <td>
-                                <button type="button" class="btn btn-success">Edit</button>
-                                <button type="button" class="btn btn-danger">Delete</button>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
+                   
                 </div>
             </div>
 
