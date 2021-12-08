@@ -31,12 +31,12 @@ package edu.famu.myinvestments.models;
 }
  */
 
+import lombok.Data;
+
 //CREATE A CLASS FOR EVERY CALL TO API DATABASE
 //MAP REQUEST 1-> 1 INCLUDING ALL VARIABLESSSSSSSSS
- class Address{
 
-    //address class
-}
+@Data
 public class Ticker {
 
     protected String name;
@@ -45,56 +45,4 @@ public class Ticker {
     protected String  market;
     protected String currency_name;
     protected String primary_exchange;
-
-
-    public Ticker() {
-    }
-
-    public Ticker(String name, String currency_name, String market, String primary_exchange, String sic_description) {
-        this.name = name;
-        this.currency_name = currency_name;
-        this.primary_exchange = primary_exchange;
-        this.market = market;
-        this.sic_description = sic_description;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getCurrency_name() {
-        return currency_name;
-    }
-
-    public void setCurrency_name(String currency_name) {
-        this.currency_name = currency_name;
-    }
-
-    public String getPrimary_exchange() {
-        return primary_exchange;
-    }
-
-    public void setPrimary_exchange(String primary_exchange) {
-        this.primary_exchange = primary_exchange;
-    }
-
-    public String getSic_description() {
-        return sic_description;
-    }
-
-    public void setSic_description(String sic_description) {
-        this.sic_description = sic_description;
-    }
-
-    public String getMarket() {
-        return market;
-    }
-
-    public void setMarket(String market) {
-        this.market = market;
-    }
 }

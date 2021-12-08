@@ -1,6 +1,7 @@
 package edu.famu.myinvestments.controllers;
 
 
+import edu.famu.myinvestments.services.ExternalAPIService;
 import edu.famu.myinvestments.services.PostService;
 import edu.famu.myinvestments.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HomeController {
 
     private UserService userService;
+
 
     @Autowired
     public HomeController(UserService userService) {

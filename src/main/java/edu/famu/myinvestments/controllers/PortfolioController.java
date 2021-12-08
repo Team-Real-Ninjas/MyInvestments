@@ -1,5 +1,6 @@
 package edu.famu.myinvestments.controllers;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import edu.famu.myinvestments.models.Comment;
 import edu.famu.myinvestments.models.Investments;
 import edu.famu.myinvestments.models.Post;
@@ -8,9 +9,7 @@ import edu.famu.myinvestments.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -35,8 +34,8 @@ public class PortfolioController {
      * @return name of the view (html file)
      */
 
-    @GetMapping("/portfolio/{user}")
-    public String getInvestments(@PathVariable("user")String user, Model model) throws ExecutionException, InterruptedException {
+    @GetMapping("/{user}")
+    public String getInvestments(@PathVariable("user") String user, Model model) throws ExecutionException, InterruptedException {
         List<Investments> investments = userService.getInvestmentByUserId(user);
         model.addAttribute("investments", investments);
         return "portfolio";
@@ -58,4 +57,14 @@ public class PortfolioController {
         model.addAttribute("investments", investments);
         return "investment";
     }
+
+    /*
+    @PutMapping("/investments/{id}")
+    public String updateInvestment(@PathVariable("id") String id, Model model) throws ExecutionException, InterruptedException {
+        Investments investments = investmentService.updateInvestment(id);
+        model.addAttribute("investments", investments);
+        return "investment";
+    }
+
+     */
 }

@@ -1,16 +1,13 @@
 package edu.famu.myinvestments.controllers;
 
-import edu.famu.myinvestments.models.Comment;
-import edu.famu.myinvestments.models.Investments;
-import edu.famu.myinvestments.models.Post;
+import edu.famu.myinvestments.models.*;
 import edu.famu.myinvestments.services.PostService;
 import edu.famu.myinvestments.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.concurrent.ExecutionException;
@@ -36,8 +33,8 @@ public class BlogController {
      * @return name of the view (html file)
      */
 
-    //  public List<Post> getPostByUserId(String id) WOULD I RETURN THIS FOR A BLOG
-    @GetMapping("/user/{user}")
+    //
+    @GetMapping("/{user}")
     public String getPosts(@PathVariable("user")String user, Model model) throws ExecutionException, InterruptedException {
         List<Post> posts = userService.getPostByUserId(user);
         model.addAttribute("posts", posts);
@@ -62,5 +59,38 @@ public class BlogController {
         return "post";
     }
 
+    //Create New post
+    @GetMapping("/new/post")
+    public String newPost(){
+        return "post";
+    }
+
+    //Save Data
+    @PostMapping(path="/new/post/save", consumes = {MediaType.APPLICATION_FORM_URLENCODED_VALUE})
+    public String savePost(RestPost post) throws ExecutionException, InterruptedException {
+        postService.createPost(post);
+        return"redirect:/";
+    }
+
+    //Create New comment
+    @GetMapping("/new/comment")
+    public String newComment(){
+        return "comment";
+    }
+
+    //Save Data
+    @PostMapping(path="/new/comment/save", consumes = {MediaType.APPLICATION_FORM_URLENCODED_VALUE})
+    public String savePost(RestComment comment) throws ExecutionException, InterruptedException {
+        postService.createComment(comment);
+        return"redirect:/";
+    }
+
+    //HOWWC Would I return post? or "redirect:/"
+    @DeleteMapping("/post/{id}")
+    public String deleteComment(String id, Model model) throws ExecutionException, InterruptedException {
+        postService.deletePostComment(id);
+        return "post";
+
+    }
 }
 

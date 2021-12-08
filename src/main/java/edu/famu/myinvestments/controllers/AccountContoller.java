@@ -12,14 +12,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.concurrent.ExecutionException;
 
 @Controller
-@RequestMapping("/mysmartinvestments/account")
-public class AccountInfoContoller {
+//@RequestMapping("/mysmartinvestments/account")
+public class AccountContoller {
 
     private UserService userService;
 
     @Autowired
-    public AccountInfoContoller(UserService userService) {
+    public AccountContoller(UserService userService) {
         this.userService = userService;
+    }
+
+    @GetMapping("/")
+    public String getUsers(Model model) throws ExecutionException, InterruptedException {
+        model.addAttribute("user", userService.getAllUsers());
+        return "index";
     }
 
     @GetMapping("/user/{id}")
