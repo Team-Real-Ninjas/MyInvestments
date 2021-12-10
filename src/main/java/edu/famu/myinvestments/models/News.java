@@ -18,8 +18,22 @@ public class News {
             publisher;
 
     protected ArrayList<String> keywords;
-    //protected Date published_utc;
 
+
+    public News() {
+    }
+
+    public News(String id, String article_url, String author,
+                String description, String image_url,
+                String publisher, ArrayList<String> keywords) {
+        this.id = id;
+        this.article_url = article_url;
+        this.author = author;
+        this.description = description;
+        this.image_url = image_url;
+        this.publisher = publisher;
+        this.keywords = keywords;
+    }
 
     public String getArticle_url() {
         return article_url;
@@ -44,8 +58,6 @@ public class News {
     public void setDescription(String description) {
         this.description = description;
     }
-
-
 
     public String getImage_url() {
         return image_url;

@@ -50,6 +50,21 @@ public class Ticker {
     protected String currency_name;
     protected String primary_exchange;
 
+    public Ticker() {
+
+    }
+
+    public Ticker(String id, String name, String ticker,
+                  String sic_description, String market, String currency_name, String primary_exchange) {
+        this.id = id;
+        this.name = name;
+        this.ticker = ticker;
+        this.sic_description = sic_description;
+        this.market = market;
+        this.currency_name = currency_name;
+        this.primary_exchange = primary_exchange;
+    }
+
     public String getId() {
         return id;
     }

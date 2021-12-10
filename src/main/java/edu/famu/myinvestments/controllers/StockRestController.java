@@ -1,6 +1,8 @@
 package edu.famu.myinvestments.controllers;
 
+import edu.famu.myinvestments.models.Investments;
 import edu.famu.myinvestments.models.News;
+import edu.famu.myinvestments.models.StockChart;
 import edu.famu.myinvestments.models.Ticker;
 import edu.famu.myinvestments.services.StockService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +38,13 @@ public class StockRestController {
     @GetMapping(path = "/news/")
     public List<News> getAllStockNews() throws ExecutionException, InterruptedException {
         return this.stockService.getAllStockNews();
+    }
+
+
+
+    @GetMapping("/StockChart/{tickerId}")
+        public List<StockChart> getStockChartByTickerId(@PathVariable(name="tickerId") String tickerId) throws ExecutionException, InterruptedException {
+        return stockService.getStockChartByTickerId(tickerId);
     }
 
 }

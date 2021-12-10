@@ -59,11 +59,15 @@ public class PortfolioController {
     }
 
 
+
+    /*
     @GetMapping("/investments/{id}")
     public String updateInvestment(@PathVariable("id") String id, Model model) throws ExecutionException, InterruptedException, JsonProcessingException {
-        Investments investments = investmentService.updateInvestment(id);
-        model.addAttribute("investments", investments);
-        return "investment";
+        Boolean investmentStatus = investmentService.updateInvestment(id);
+        model.addAttribute("investments", investmentStatus);
+        return "investments";
     }
+
+     */
 
 }
