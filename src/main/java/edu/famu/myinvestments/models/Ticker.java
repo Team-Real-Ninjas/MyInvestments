@@ -31,18 +31,78 @@ package edu.famu.myinvestments.models;
 }
  */
 
-import lombok.Data;
+import com.google.cloud.firestore.annotation.DocumentId;
+
 
 //CREATE A CLASS FOR EVERY CALL TO API DATABASE
 //MAP REQUEST 1-> 1 INCLUDING ALL VARIABLESSSSSSSSS
 
-@Data
+
 public class Ticker {
 
+    @DocumentId
+    protected String id;
     protected String name;
+    protected String ticker;
     protected String sic_description;
     //enum [stocks, crypto, fx]
-    protected String  market;
+    protected String market;
     protected String currency_name;
     protected String primary_exchange;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getTicker() {
+        return ticker;
+    }
+
+    public void setTicker(String ticker) {
+        this.ticker = ticker;
+    }
+
+    public String getSic_description() {
+        return sic_description;
+    }
+
+    public void setSic_description(String sic_description) {
+        this.sic_description = sic_description;
+    }
+
+    public String getMarket() {
+        return market;
+    }
+
+    public void setMarket(String market) {
+        this.market = market;
+    }
+
+    public String getCurrency_name() {
+        return currency_name;
+    }
+
+    public void setCurrency_name(String currency_name) {
+        this.currency_name = currency_name;
+    }
+
+    public String getPrimary_exchange() {
+        return primary_exchange;
+    }
+
+    public void setPrimary_exchange(String primary_exchange) {
+        this.primary_exchange = primary_exchange;
+    }
 }

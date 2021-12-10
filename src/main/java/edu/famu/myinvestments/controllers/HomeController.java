@@ -1,8 +1,6 @@
 package edu.famu.myinvestments.controllers;
 
 
-import edu.famu.myinvestments.services.ExternalAPIService;
-import edu.famu.myinvestments.services.PostService;
 import edu.famu.myinvestments.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,5 +17,6 @@ public class HomeController {
     public HomeController(UserService userService) {
         this.userService = userService;
     }
+
 
 }
