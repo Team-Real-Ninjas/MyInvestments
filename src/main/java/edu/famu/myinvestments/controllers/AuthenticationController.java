@@ -21,6 +21,7 @@ public class AuthenticationController {
     @GetMapping("/session")
     public ResponseEntity createSession()
     {
+
         return new ResponseEntity(HttpStatus.OK);
     }
 }

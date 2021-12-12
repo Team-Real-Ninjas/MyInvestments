@@ -13,6 +13,8 @@ import java.util.concurrent.ExecutionException;
 @Service
 public class StockService {
 
+
+
     public List<Ticker> getAllTickers() throws ExecutionException, InterruptedException {
         Firestore db = FirestoreClient.getFirestore(); // Connecting to db
         List<Ticker> Tickers = new ArrayList(); // create's an empty List

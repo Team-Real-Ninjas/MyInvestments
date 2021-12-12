@@ -53,6 +53,47 @@ class PostService {
 
     }
 
+    public Comment getCommentById(String id)throws ExecutionException, InterruptedException{
+        Comment comment = null;
+        //database connection object
+        Firestore db = FirestoreClient.getFirestore();
+
+        //retrieves a reference to the document(row) of the collection (table) with a specific id
+        DocumentReference commentRef = db.collection("Comment").document(id);
+
+        //ApiFuture allows us to make async calls to the database
+        ApiFuture<DocumentSnapshot> future = commentRef.get();
+        //Retrieve document
+        DocumentSnapshot document = future.get();
+
+        //Convert JSON into Post class object
+        if(document.exists())
+        {
+            UserService service = new UserService();
+            PostService postService = new PostService();
+
+            DocumentReference userRef = (DocumentReference) document.get("user");
+            ApiFuture<DocumentSnapshot> userQuery = userRef.get();
+            DocumentSnapshot userDoc = userQuery.get();
+            User user = userDoc.toObject(User.class);
+
+            DocumentReference postRef = (DocumentReference) document.get("post");
+            ApiFuture<DocumentSnapshot> postQuery = postRef.get();
+            DocumentSnapshot postDoc = postQuery.get();
+            Post post = postDoc.toObject(Post.class);
+
+            comment =  new Comment(
+                    document.getId(),
+                    document.getString("content"),
+                    document.getLong("likes"),
+                    user, post);
+        }
+
+
+        return comment;
+
+    }
+
     public String createPost(RestPost post) throws ExecutionException, InterruptedException{
         //database connection object
         Firestore db = FirestoreClient.getFirestore();
@@ -100,7 +141,9 @@ class PostService {
                 //add the comment to the list
                 comments.add(new Comment(document.getId(),
                         document.getString("content"),
-                        document.getLong("likes"), user, post));
+                        document.getLong("likes"),
+                        user,
+                        post));
             }
 
             return comments;

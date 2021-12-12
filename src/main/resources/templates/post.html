@@ -1,0 +1,30 @@
+<div th:replace="fragments/header.html"></div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-auto">
+            <h3 class="display-3" th:text="${post.title}"></h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12" th:utext="${post.content}">
+            Post Content
+        </div>
+    </div>
+    <hr/>
+    <div class="row">
+        <div class="col-12" th:each="comment : ${comments}">
+
+            <div class="card commentCard">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-2 col-sm-12" th:href="@{/post/comment/{id} (id=${id})}" th:text="${username}">username</div>
+                        <div class="col-md-10 col-sm-12" th:utext="${content}">comment content</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="fragments/footer.html"></div>

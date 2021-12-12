@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-
-<!-- NEED HELP CONFIGURATING --!>
 <div th:replace="fragments/header.html"></div>
 <div class="container-fluid">
     <div class="row">
@@ -8,13 +6,17 @@
 
             <div class="row">
                 <div class="col-10"><h1 class="display-2">Posts</h1></div>
-                <div class="col-2" th:text="'Welcome ' + ${firstName}">Welcome</div>
+                <div class="col-2" th:text="'Welcome ' + ${username}">Welcome</div>
             </div>
             <div class="row">
                 <div class="col-12">
                     <table class="table table-striped">
                         <thead>
-                        <tr><th>Title</th><th>Likes</th><th>Actions</th></tr>
+                        <tr>
+                            <th>Title</th>
+                            <th>Likes</th>
+                            <th>Actions</th>
+                        </tr>
                         </thead>
                         <tbody>
                         <!--/*@thymesVar id="posts" type="List<Post>"*/-->
@@ -37,6 +39,5 @@
 
     </div>
 </div>
-
 
 <div th:replace="fragments/footer.html"></div>

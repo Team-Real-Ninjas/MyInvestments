@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import edu.famu.myinvestments.models.Comment;
 import edu.famu.myinvestments.models.Investments;
 import edu.famu.myinvestments.models.Post;
+import edu.famu.myinvestments.models.User;
 import edu.famu.myinvestments.services.InvestmentService;
 import edu.famu.myinvestments.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,7 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 @Controller
-@RequestMapping("/mysmartinvestments/portfolio")
+//@RequestMapping("/portfolio")
 public class PortfolioController {
 
     private InvestmentService investmentService;
@@ -34,7 +35,7 @@ public class PortfolioController {
      * @return name of the view (html file)
      */
 
-    @GetMapping("/{user}")
+    @GetMapping("/portfolio/{user}")
     public String getInvestments(@PathVariable("user") String user, Model model) throws ExecutionException, InterruptedException {
         List<Investments> investments = userService.getInvestmentByUserId(user);
         model.addAttribute("investments", investments);
@@ -55,8 +56,10 @@ public class PortfolioController {
     public String getInvestment(@PathVariable("id") String id, Model model) throws ExecutionException, InterruptedException {
         Investments investments = investmentService.getInvestmentById(id);
         model.addAttribute("investments", investments);
-        return "investment";
+        return "portfolio"; //ADD A ?
     }
+
+
 
 
 

@@ -10,6 +10,10 @@ $(document).ready(function() {
 
     //TODO: Place your Firebase Config variable here
 
+    function firebaseConfig() {
+
+    }
+
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
 
@@ -32,7 +36,7 @@ $(document).ready(function() {
                     method: "GET",
                     context: document.body
                 }).done(()=>{
-                    location.replace("http://localhost:8080/home");
+                    location.replace("http://localhost:8080/Home");
                 })
             })
             .catch(function (error) {

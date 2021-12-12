@@ -9,6 +9,7 @@ import com.google.cloud.firestore.*;
 import com.google.firebase.cloud.FirestoreClient;
 import edu.famu.myinvestments.models.Investments;
 import edu.famu.myinvestments.models.Post;
+import edu.famu.myinvestments.models.RestPost;
 import edu.famu.myinvestments.models.User;
 import org.springframework.stereotype.Service;
 
@@ -138,6 +139,13 @@ public class UserService {
 
         //Convert to User Object
         return(document.toObject(User.class));
+    }
+
+    public String createUser(User user) throws ExecutionException, InterruptedException{
+        //database connection object
+        Firestore db = FirestoreClient.getFirestore();
+        ApiFuture<DocumentReference> userRef = db.collection("User").add(user);
+        return userRef.get().getId();
     }
 
     /*

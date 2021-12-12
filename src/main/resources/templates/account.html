@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<div th:replace="fragments/header.html"></div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="row">
+                <div class="col-2"><h1 class="display-2">Account Details</h1></div>
+                <div class="col-2" th:text="'Welcome ' + ${firstName}">Welcome</div>
+            </div>
+            <div class="col">
+                <div class="col-12">
+                    <table class="table table-striped" style="width:100%">
+                        <thead>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>phoneNumber</th>
+                            <th>Primary Email</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <!--/*@thymesVar id="posts" type="List<Post>"*/-->
+
+                        <tr class="col-12" style="width:100%" th:each="user : ${users}">
+
+                            <td><a th:href="@{/user/{id}(id=${id})}" th:text="${firstName}">First Name</a></td>
+                            <td th:text="${lastName}">Last Name</td>
+                            <td th:text="${phoneNumber}">Phone Number</td>
+                            <td th:text="${email}">Email</td>
+                            <td>
+                                <button type="button" class="btn btn-success"> Edit</button>
+                                <button type="button" class="btn btn-danger">Delete</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<div th:replace="fragments/footer.html"></div>
