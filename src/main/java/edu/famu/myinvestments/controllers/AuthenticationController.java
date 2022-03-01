@@ -16,7 +16,7 @@ public class AuthenticationController {
 
 
     /**
-     * Used to create the session. Does not retun a template like most controllers
+     * Used to create the session. Does not return a template like most controllers
      */
     @GetMapping("/session")
     public ResponseEntity createSession()

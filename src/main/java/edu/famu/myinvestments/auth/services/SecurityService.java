@@ -3,8 +3,9 @@ package edu.famu.myinvestments.auth.services;
 import edu.famu.myinvestments.auth.models.Credentials;
 import edu.famu.myinvestments.auth.models.FirebaseUser;
 import edu.famu.myinvestments.auth.models.SecurityProperties;
-import org.springframework.beans.factory.annotation.Autowired;
 
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
@@ -13,7 +14,7 @@ import org.springframework.util.StringUtils;
 import javax.servlet.http.HttpServletRequest;
 
 @Service
-public class SecurityService {
+public class SecurityService<CookieUtils> {
 
     @Autowired
     HttpServletRequest httpServletRequest;

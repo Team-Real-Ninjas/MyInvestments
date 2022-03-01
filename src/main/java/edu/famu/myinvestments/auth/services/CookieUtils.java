@@ -1,4 +1,5 @@
 package edu.famu.myinvestments.auth.services;
+
 import edu.famu.myinvestments.auth.models.SecurityProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 

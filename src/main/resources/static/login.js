@@ -30,13 +30,14 @@ $(document).ready(function() {
                 localStorage.setItem("idToken", token);
                 let headers = {"Authorization": "Bearer " + token}
 
+                //If the login works it will the take these actions
                 $.ajax({
                     headers: headers,
                     url:"http://localhost:8080/session",
                     method: "GET",
                     context: document.body
                 }).done(()=>{
-                    location.replace("http://localhost:8080/Home");
+                    location.replace("http://localhost:8080/Home");//Home Page
                 })
             })
             .catch(function (error) {

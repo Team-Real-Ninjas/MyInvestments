@@ -1,7 +1,6 @@
 package edu.famu.myinvestments.controllers;
 
 
-import edu.famu.myinvestments.auth.services.SecurityService;
 import edu.famu.myinvestments.models.Post;
 import edu.famu.myinvestments.models.StockChart;
 import edu.famu.myinvestments.models.Ticker;
@@ -19,7 +18,7 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 @Controller
-@RequestMapping("/home")
+@RequestMapping("/Home")
 public class HomeController {
 
     private StockService stockService;
@@ -58,8 +57,6 @@ public class HomeController {
 
     @GetMapping("/{tickerId}")
     public String getTickerChartInformation(@PathVariable("tickerId")String id, Model model) throws ExecutionException, InterruptedException {
-        SecurityService securityService = new SecurityService();
-        User user = securityService.getUser().getUser();
         List<StockChart> chart = stockService.getStockChartByTickerId(id);
         model.addAttribute("chart", chart);
         return "home";

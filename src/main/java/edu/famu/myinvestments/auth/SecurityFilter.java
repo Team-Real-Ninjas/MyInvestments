@@ -2,7 +2,6 @@ package edu.famu.myinvestments.auth;
 
 
 import com.google.api.core.ApiFuture;
-import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.Firestore;
 import com.google.cloud.firestore.Query;
 import com.google.cloud.firestore.QuerySnapshot;
@@ -15,6 +14,7 @@ import edu.famu.myinvestments.auth.models.Credentials;
 import edu.famu.myinvestments.auth.models.FirebaseUser;
 import edu.famu.myinvestments.auth.models.SecurityProperties;
 import edu.famu.myinvestments.auth.services.CookieUtils;
+import edu.famu.myinvestments.auth.services.SecurityService;
 import edu.famu.myinvestments.models.User;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -40,7 +40,7 @@ import java.util.concurrent.ExecutionException;
 public class SecurityFilter extends OncePerRequestFilter {
 
     @Autowired
-    edu.famu.myinvestments.auth.services.SecurityService securityService;
+    SecurityService securityService;
 
     @Autowired
     SecurityProperties restSecProps;
