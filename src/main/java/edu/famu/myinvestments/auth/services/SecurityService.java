@@ -14,7 +14,7 @@ import org.springframework.util.StringUtils;
 import javax.servlet.http.HttpServletRequest;
 
 @Service
-public class SecurityService<CookieUtils> {
+public class SecurityService{
 
     @Autowired
     HttpServletRequest httpServletRequest;
