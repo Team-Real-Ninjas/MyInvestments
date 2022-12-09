@@ -24,6 +24,9 @@ security:
   allowed-origins:
     - https://${DOMAIN}
     - http://localhost:8080
+    - http://localhost:8080/blog/{user}
+    - http://localhost:8080/blog
+    - http://localhost:8080/home
   allowed-methods:
     - GET
     - POST
@@ -50,7 +53,7 @@ security:
   allowed-public-apis:
     - /favicon.ico
     - /home
-    - /
+    - /account
     - /blog
     - /login
     - /signup

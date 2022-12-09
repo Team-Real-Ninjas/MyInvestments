@@ -22,6 +22,7 @@ import java.util.concurrent.ExecutionException;
 @Service
 public class UserService {
 
+    //GETS ALL USERS
     public List<User> getAllUsers() throws ExecutionException, InterruptedException {
         Firestore db = FirestoreClient.getFirestore();
         List<User> userList = new ArrayList();
@@ -45,6 +46,7 @@ public class UserService {
         return userList;
     }
 
+    //GET USERS POST
     public List<Post> getPostByUserId(String id) throws ExecutionException, InterruptedException {
 
         List<Post> posts = new ArrayList();

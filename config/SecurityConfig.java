@@ -1,7 +1,6 @@
 package edu.famu.myinvestments.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 import edu.famu.myinvestments.auth.SecurityFilter;
 import edu.famu.myinvestments.auth.models.SecurityProperties;
 import org.springframework.beans.factory.annotation.Autowired;

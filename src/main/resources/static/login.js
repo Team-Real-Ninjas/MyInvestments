@@ -2,6 +2,7 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.1/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.4.1/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -10,9 +11,16 @@ $(document).ready(function() {
 
     //TODO: Place your Firebase Config variable here
 
-    function firebaseConfig() {
 
-    }
+    // Web app's Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyCMgW7ePWNAd9jJXnXgAZFsYb7xpk52phw",
+        authDomain: "mysmartinvestment.firebaseapp.com",
+        projectId: "mysmartinvestment",
+        storageBucket: "mysmartinvestment.appspot.com",
+        messagingSenderId: "341448302091",
+        appId: "1:341448302091:web:157e53ebea90507b9e310e"
+    };
 
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
@@ -22,7 +30,7 @@ $(document).ready(function() {
         e.preventDefault();
         $("#responseBanner").html("").addClass("visually-hidden");
 
-        signInWithEmailAndPassword(auth, $("#email").val(), $("#password").val())
+        signInWithEmailAndPassword(auth, $("#emailAddress").val(), $("#password").val())
             .then(async (cred)=>{
                 let user = cred.user;
                 let res = await user.getIdTokenResult(false);
@@ -48,6 +56,8 @@ $(document).ready(function() {
                 console.log(error);
             });
     })
+
+
 
 
 });

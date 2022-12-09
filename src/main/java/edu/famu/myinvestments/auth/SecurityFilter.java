@@ -9,12 +9,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.FirebaseToken;
 import com.google.firebase.cloud.FirestoreClient;
-
 import edu.famu.myinvestments.auth.models.Credentials;
-import edu.famu.myinvestments.auth.models.FirebaseUser;
 import edu.famu.myinvestments.auth.models.SecurityProperties;
-import edu.famu.myinvestments.auth.services.CookieUtils;
 import edu.famu.myinvestments.auth.services.SecurityService;
+import edu.famu.myinvestments.auth.models.FirebaseUser;
+import edu.famu.myinvestments.auth.services.CookieUtils;
 import edu.famu.myinvestments.models.User;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -105,7 +104,7 @@ public class SecurityFilter extends OncePerRequestFilter {
             user.setEmailVerified(decodedToken.isEmailVerified());
 
             Firestore db = FirestoreClient.getFirestore();
-            Query query = db.collection("User").whereEqualTo("id", decodedToken.getUid());
+            Query query = db.collection("User").whereEqualTo("uid", decodedToken.getUid());
             ApiFuture<QuerySnapshot> qs = query.get();
             if(!qs.get().isEmpty())
             {
